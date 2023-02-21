@@ -12,6 +12,7 @@ h1{
 }
 
 .actualPageNav{
+    margin-bottom: 15px;
     background-color: #1a1d20;
 }
 
@@ -19,6 +20,30 @@ a[href="#"]{
     color:#d90368 !important;
 }
 
-footer{
+footer[class="row"]{
+    align-items: center;
+    margin-top: 15px;
     background-color: #1a1d20;
+    color:white;
+    height: 50px;
+}
+
+.cardRow{
+    margin-top: 15px !important;
+}
+
+.card{
+    height: 100% !important;
+}
+.card>img{
+    height: 40%;
+}
+
+.searchIcon{
+    width: 25px;
+}
+
+.socialMediaIcons{
+    width: 35px;
+    margin-right: 9px;
 }
