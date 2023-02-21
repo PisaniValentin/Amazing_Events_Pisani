@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+*{
+    font:15px 'Montserrat', Futura, sans-serif;
+}
 .form-check-label{
     color: white;
 }
@@ -18,6 +22,8 @@ h1{
 
 a[href="#"]{
     color:#d90368 !important;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 footer[class="row"]{
@@ -38,6 +44,17 @@ footer[class="row"]{
 .card>img{
     height: 40%;
 }
+.card-body{
+    height: 60%;
+}
+
+.descriptionCard{
+    height: 80%;
+}
+
+.footerCard{
+    height: 20%;
+}
 
 .searchIcon{
     width: 25px;
@@ -46,4 +63,16 @@ footer[class="row"]{
 .socialMediaIcons{
     width: 35px;
     margin-right: 9px;
+}
+
+.verMasButton{
+    font-weight: bold;
+    display: flex;
+    border: 3px solid rgb(0, 0, 0);
+    box-shadow:-5px -5px 2px 1px rgb(0 0 0 / 28%);
+    text-decoration: none;
+    color: black;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
 }
