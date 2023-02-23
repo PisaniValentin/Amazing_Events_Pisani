@@ -6,6 +6,12 @@
     color: white;
 }
 
+header{
+    width: 100vw;
+}
+.row{
+    width: 100%;
+}
 
 .logo{
     width: 11rem;
@@ -27,6 +33,7 @@ a[href="#"]{
 }
 
 footer[class="row"]{
+    width: 100%;
     align-items: center;
     margin-top: 15px;
     background-color: #1a1d20;
@@ -35,6 +42,7 @@ footer[class="row"]{
 }
 
 .cardRow{
+    width: 100%;
     margin-top: 15px !important;
 }
 
@@ -75,4 +83,19 @@ footer[class="row"]{
     height: 45px;
     align-items: center;
     justify-content: center;
+}
+
+
+.tabla *{
+    
+    border:2px solid rgb(211, 211, 211);
+    color: rgb(227 227 227);
+    font: 15px 'Montserrat', Futura, sans-serif;
+}
+
+.tabla th{
+    color:#d90368 ;
+    font-weight: bold;
+    border:2px solid rgb(227 227 227);;
+    background-color: #1a1d20;
 }
