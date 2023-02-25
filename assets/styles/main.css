@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 *{
     font:15px 'Montserrat', Futura, sans-serif;
+    margin: 0 !important;
+    box-sizing: border-box;
+    padding: 0;
 }
 .form-check-label{
     color: white;
-}
-body{
-    
-    height: 100%;
 }
 
 main{
@@ -48,30 +47,9 @@ footer[class="row"]{
     background-color: #1a1d20;
     color:white;
     min-height: 10vh;
+    padding-left: 45px;
 }
 
-.cardRow{
-    width: 100%;
-    margin-top: 15px !important;
-}
-
-.card{
-    height: 100% !important;
-}
-.card>img{
-    height: 40%;
-}
-.card-body{
-    height: 60%;
-}
-
-.descriptionCard{
-    height: 80%;
-}
-
-.footerCard{
-    height: 20%;
-}
 
 .searchIcon{
     width: 25px;
@@ -108,3 +86,93 @@ footer[class="row"]{
     border:2px solid rgb(227 227 227);;
     background-color: #1a1d20;
 }
+
+form label{
+    color: white;
+}
+
+.inputFormClass{
+    width: 40vw;
+}
+
+#Message{
+    height: 40vh;
+}
+input[type="submit"]{
+    margin-top: 10px;
+    background-color: #d90368;
+}
+
+.submitContainer{
+    display: flex;
+    justify-content: end;
+}
+
+.cardRow{
+    width: 100%;
+    height: 100% !important;
+}
+.cardRow .col{
+    height: 100% !important;
+}
+
+.columna{
+    min-height: 100%;
+}
+/* .row{
+    height: 100% !important;
+} */
+
+.cardContainer{
+    min-height: 80%;
+    width: 20%;
+}
+
+.cardTop{
+    width: 100%;
+    height: 40% ;
+}
+
+.cardTop img{
+    width: 100%;
+    min-height: 100% !important;
+}
+
+.cardBot{
+    min-width: 60%;
+    background-color: aliceblue;
+    min-height:60%;
+}
+
+.card>img{
+    height: 40%;
+}
+
+/* .descriptionCard{
+    padding-top: 15px;
+    width: 100%;
+    text-align: center;
+    height: 80%;
+    align-content: flex-start !important;
+}  */
+/* .descriptionCard p{
+    padding-top: 15px;
+}
+
+.footerCard{
+    width: 100%;
+    height: 20%;
+    align-content: end;
+    
+}
+  .descriptionBottom{
+    display: flex !important;
+    height: 80%;
+}   */
+/* h5{
+    font-weight: bold !important;
+    text-align: center;
+    height: 10% !important;
+} */
+
+
