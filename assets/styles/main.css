@@ -1,178 +1,206 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
-*{
-    font:15px 'Montserrat', Futura, sans-serif;
+
+* {
+    font: 15px 'Montserrat', Futura, sans-serif;
     margin: 0 !important;
     box-sizing: border-box;
-    padding: 0;
 }
-.form-check-label{
+
+.form-check-label {
     color: white;
 }
 
-main{
+main {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 50px;
     width: 100%;
     min-height: 70vh;
 }
 
-header{
+header {
     width: 100%;
     min-height: 20vh;
 }
-.row{
+
+.row {
     width: 100%;
 }
 
-.logo{
+.logo {
     width: 11rem;
     padding: 1rem;
 }
-h1{
+
+h1 {
     color: #d90368 !important;
 }
 
-.actualPageNav{
+.actualPageNav {
     margin-bottom: 15px;
     background-color: #1a1d20;
 }
 
-a[href="#"]{
-    color:#d90368 !important;
+a[href="#"] {
+    color: #d90368 !important;
     font-weight: bold;
     text-decoration: underline;
 }
 
-footer[class="row"]{
+footer[class="row"] {
     width: 100%;
     align-items: center;
     background-color: #1a1d20;
-    color:white;
-    min-height: 10vh;
+    color: white;
     padding-left: 45px;
 }
 
 
-.searchIcon{
+.searchIcon {
     width: 25px;
 }
 
-.socialMediaIcons{
+.socialMediaIcons {
     width: 35px;
     margin-right: 9px;
 }
 
-.verMasButton{
+.verMasButton {
     font-weight: bold;
     display: flex;
     border: 3px solid rgb(0, 0, 0);
-    box-shadow:-5px -5px 2px 1px rgb(0 0 0 / 28%);
+    box-shadow: -5px -5px 2px 1px rgb(0 0 0 / 28%);
     text-decoration: none;
-    color: black;
+    color: rgb(234, 234, 234);
     height: 45px;
     align-items: center;
     justify-content: center;
 }
 
 
-.tabla *{
-    
-    border:2px solid rgb(211, 211, 211);
+.tabla * {
+
+    border: 2px solid rgb(211, 211, 211);
     color: rgb(227 227 227);
     font: 15px 'Montserrat', Futura, sans-serif;
 }
 
-.tabla th{
-    color:#d90368 ;
+.tabla th {
+    color: #d90368;
     font-weight: bold;
-    border:2px solid rgb(227 227 227);;
+    border: 2px solid rgb(227 227 227);
+    ;
     background-color: #1a1d20;
 }
 
-form label{
+form label {
     color: white;
 }
 
-.inputFormClass{
+.inputFormClass {
     width: 40vw;
 }
 
-#Message{
+#Message {
     height: 40vh;
 }
-input[type="submit"]{
+
+input[type="submit"] {
     margin-top: 10px;
     background-color: #d90368;
 }
 
-.submitContainer{
+.submitContainer {
     display: flex;
     justify-content: end;
 }
+.columna {
+    padding-top: 15px;
+    max-width: 70%;
+}
 
-.cardRow{
+.cardTop {
+    border-radius: 5px;
+    background-color: #1a1d20;
     width: 100%;
-    height: 100% !important;
-}
-.cardRow .col{
-    height: 100% !important;
-}
-
-.columna{
-    min-height: 100%;
-}
-/* .row{
-    height: 100% !important;
-} */
-
-.cardContainer{
-    min-height: 80%;
-    width: 20%;
-}
-
-.cardTop{
-    width: 100%;
-    height: 40% ;
-}
-
-.cardTop img{
-    width: 100%;
-    min-height: 100% !important;
-}
-
-.cardBot{
-    min-width: 60%;
-    background-color: aliceblue;
-    min-height:60%;
-}
-
-.card>img{
     height: 40%;
 }
 
-/* .descriptionCard{
-    padding-top: 15px;
+.cardTop img {
+    padding: 5px;
     width: 100%;
-    text-align: center;
-    height: 80%;
-    align-content: flex-start !important;
-}  */
-/* .descriptionCard p{
-    padding-top: 15px;
+    height: 100%;
 }
 
-.footerCard{
+.cardBot {
+
+    color: aliceblue;
     width: 100%;
+    background-color: #1a1d20;
+    height: 60%;
+}
+
+.cardBotHeader{
+    text-align: center;
+    height: 70%;
+}
+.carbotFooter{
     height: 20%;
-    align-content: end;
-    
 }
-  .descriptionBottom{
-    display: flex !important;
-    height: 80%;
-}   */
-/* h5{
-    font-weight: bold !important;
+
+.detailsContainer{
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    min-height: 40vw;
+    background-color:#1a1d20;
+    padding: 15px;
+    align-items: center;
+}
+.detailsImage img{
+    width: 100%;
+}
+.detailsDescription{
     text-align: center;
-    height: 10% !important;
-} */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 
+
+
+@media screen and (max-width:768px) {
+    .columna {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 70%;
+        height: 50vh;
+    }
+
+    .cardTop {
+        border-radius: 5px;
+        background-color: #1a1d20;
+        width: 80%;
+        height: 40%;
+    }
+
+    .cardBot {
+        color: aliceblue;
+        width: 80%;
+        background-color: #1a1d20;
+        height: 60%;
+    }
+
+    /* .cardBotHeader{
+        text-align: center;
+        height: 70%;
+    }
+    .carbotFooter{
+        height: 20%;
+    } */
+
+
+}
