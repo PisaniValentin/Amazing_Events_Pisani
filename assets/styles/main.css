@@ -188,6 +188,9 @@ input[type="submit"] {
     flex-direction: column;
     justify-content: center;
 }
+.tableContainer{
+    min-height: 60vh;
+}
 
 
 @media screen and (max-width:768px) {

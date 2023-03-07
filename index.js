@@ -1,7 +1,7 @@
 const mainContainer = document.getElementById('main');
 let cards = '';
-for(datos of eventos.events){
-    cards += `<div class="columna col-12 col-sm-6 col-lg-3">
+for (datos of eventos.events) {
+  cards += `<div class="columna col-12 col-sm-6 col-lg-3">
     <div class="cardTop">
       <img src=${datos.image}>
     </div>
@@ -22,4 +22,19 @@ for(datos of eventos.events){
     </div>
   </div>`
 }
-mainContainer.innerHTML = cards
+mainContainer.innerHTML = cards;
+
+
+let categoriasContainer = document.getElementById('categorias');
+let opciones = '';
+const set = new Set();
+for (datos of eventos.events) {
+  if (!set.has(datos.category)) {
+    opciones += ` <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1">
+    <label class="form-check-label" for="inlineCheckbox1">${datos.category}</label>
+    </div>`
+    set.add(datos.category);
+  }
+}
+categoriasContainer.innerHTML = opciones;

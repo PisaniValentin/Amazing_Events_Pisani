@@ -30,3 +30,17 @@ for(datos of eventos.events){
     }
 }
 mainContainer.innerHTML = cards
+
+let categoriasContainer = document.getElementById('categorias');
+let opciones = '';
+const set = new Set();
+for (datos of eventos.events) {
+  if (!set.has(datos.category)) {
+    opciones += ` <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1">
+    <label class="form-check-label" for="inlineCheckbox1">${datos.category}</label>
+    </div>`
+    set.add(datos.category);
+  }
+}
+categoriasContainer.innerHTML = opciones;
