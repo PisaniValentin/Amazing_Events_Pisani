@@ -152,9 +152,13 @@ input[type="submit"] {
 }
 
 .cardBotHeader{
-    text-align: center;
     height: 70%;
 }
+.cardBotHeader h5{
+    text-align: center;
+    color: #d90368;
+}
+
 .carbotFooter{
     height: 20%;
 }
