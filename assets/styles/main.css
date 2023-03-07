@@ -26,16 +26,12 @@ header {
     width: 100%;
     min-height: 20vh;
 }
-.navBarAndIcon{
-    /* max-height: 40vh; */
-}
+
 .actualPageNav {
     margin-bottom: 15px;
     background-color: #1a1d20;
-    /* max-height: 10%; */
 }
 .searchAndCategorys{
-    /* max-height: 10%; */
     padding-top: 5px;
 }
 
