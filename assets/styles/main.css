@@ -128,6 +128,7 @@ input[type="submit"] {
 .columna {
     padding-top: 15px;
     max-width: 70%;
+    min-height: 80vh;
 }
 
 .cardTop {
@@ -192,29 +193,33 @@ input[type="submit"] {
     min-height: 60vh;
 }
 
+@media screen and (max-width:650px) {
+    .columna{
+        min-height: 90vh;
+    }
+
+    
+
+}
+
+
+
 
 @media screen and (max-width:768px) {
+
+    .categorias{
+        display: flex;
+        flex-direction: column;
+    }
     .columna {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         max-width: 70%;
-        height: 50vh;
+        min-height: 80vh;
     }
 
-    .cardTop {
-        border-radius: 5px;
-        background-color: #1a1d20;
-        width: 80%;
-        height: 40%;
-    }
 
-    .cardBot {
-        color: aliceblue;
-        width: 80%;
-        background-color: #1a1d20;
-        height: 60%;
-    }
 
     /* .cardBotHeader{
         text-align: center;
