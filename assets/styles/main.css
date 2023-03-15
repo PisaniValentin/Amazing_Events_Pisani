@@ -204,6 +204,14 @@ input[type="submit"] {
     align-items: center;
 }
 
+.filterAlert{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    color:aliceblue;
+
+}
+
 
 @media screen and (max-width:650px) {
     .columna {
