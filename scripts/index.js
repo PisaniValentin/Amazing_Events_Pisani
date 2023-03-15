@@ -41,7 +41,7 @@ function insertCards(array) {
             <div class="cardBotFooter row">
               <div class="cardPrice col-6">price $ ${datos.price}</div>
               <div class="cardButton col-6">
-                <a class="verMasButton" href="./details.html">See more</a>
+                <a class="verMasButton" href="./details.html?name=${datos.name}">See more</a>
               </div>
             </div>
           </div>
