@@ -1,14 +1,34 @@
 const mainContainer = document.getElementById('main');
 const input = document.querySelector('input');
 
-insertCards(eventos.events);
+
 
 let categoriasContainer = document.getElementById('categorias');
 
-categoriasContainer.innerHTML = generateCategories(eventos.events);
+
 
 input.addEventListener('input', combinedFilter);
 categoriasContainer.addEventListener('change', combinedFilter);
+
+let eventsArray = [];
+
+const initPage = async () => {
+  try{
+    const response = await fetch('https://mindhub-xj03.onrender.com/api/amazing');
+    const eventos = await response.json();
+    console.log(eventos.events);
+    eventsArray = eventos.events;
+    insertCards(eventsArray);
+    categoriasContainer.innerHTML = generateCategories(eventsArray);
+  }
+  catch(error){
+    console.log('Error al obtener los datos')
+  }
+} 
+// string 
+initPage();
+
+
 
 
 /**
@@ -60,7 +80,7 @@ function generateCategories(array) {
     let opciones = '';
     let set = new Set();
 
-    eventos.events.forEach(dato => {
+    array.forEach(dato => {
         if (!set.has(dato.category)) {
             opciones += `<div class="form-check form-check-inline">
         <input class="form-check-input" role="switch" type="checkbox" id="${dato.category}" value="${dato.category}">
@@ -90,7 +110,7 @@ function filterByCheckboxes(arrayInfo) {
 }
 
 function combinedFilter() {
-    let filteredByText = filterByText(eventos.events, input.value);
+    let filteredByText = filterByText(eventsArray, input.value);
     let filteredByTextAndCheckbox = filterByCheckboxes(filteredByText);
     insertCards(filteredByTextAndCheckbox);
 }
