@@ -9,11 +9,9 @@ const initPage = async () => {
         if (response) {
             const eventos = await response.json();
             eventsArray = eventos.events;
-            //let categoryArray = getCategories(eventsArray);
             let pastEventsArray = eventsArray.filter(dato => dato.date < eventos.currentDate);
             let upcomingEventsArray = eventsArray.filter(dato => dato.date > eventos.currentDate);
-
-            // console.log(upcomingEventsArray);
+            generateEventStatistics(pastEventsArray);
             generateUpcomingEventsTable(upcomingEventsArray);
             generatePastEventsTable(pastEventsArray);
 
@@ -25,7 +23,7 @@ const initPage = async () => {
 }
 
 initPage();
-generateTable();
+//generateTable();
 
 
 
@@ -45,7 +43,7 @@ function calculateRevenues(array, category) {
     array.forEach(element => {
         if (element.category == category && element.assistance != undefined) {
             revenues = revenues + (element.assistance * element.price);
-        }else {
+        } else {
             if (element.category == category) {
                 revenues = revenues + (element.estimate * element.price);
             }
@@ -73,6 +71,60 @@ function calculatePercentage(array, category) {
     res = (totalAssistance * 100) / totalCapacity;
     return res.toFixed(2);
 }
+
+function generateEventStatistics(array) {
+    tableContainer.innerHTML += `<tr>
+    <th colspan="3">Event statistics</th>
+  </tr>
+  <tr>
+    <td>Events with lowest percentage of attendance</td>
+    <td>Events with highest percentage of attendance</td>
+    <td>Event with larger capacity</td>
+  </tr>`;
+    let maximumElement = array[0];
+    array.forEach(element => {
+        if (element.capacity > maximumElement.capacity) {
+            maximumElement = element;
+        }
+    });
+    let lowerPercentage = getLowerPercentageAttendance(array);
+    let higherPercentage = getHigherPercentageAttendance(array);
+    tableContainer.innerHTML += `<tr>
+        <td>${lowerPercentage}</td>
+        <td>${higherPercentage}</td>
+        <td>${maximumElement.name} ${maximumElement.capacity}</td>
+        </tr>
+        <tr>`
+
+}
+
+function getLowerPercentageAttendance(array) {
+    let minimumElement = array[0];
+    let minimumElementPercentage = (minimumElement.assistance * 100) / minimumElement.capacity;
+    array.forEach(element => {
+        minimumElementPercentage = (minimumElement.assistance * 100) / minimumElement.capacity;
+        let elementPercentage = (element.assistance * 100) / element.capacity;
+        if (minimumElementPercentage < elementPercentage) {
+            minimumElement = element;
+        }
+    });
+    return  minimumElement.name+" "+minimumElementPercentage.toFixed(2);
+}
+
+function getHigherPercentageAttendance(array) {
+    let maximumElement = array[0];
+    let maximumElementPercentage = (maximumElement.assistance * 100) / maximumElement.capacity;
+    array.forEach(element => {
+        maximumElementPercentage = (maximumElement.assistance * 100) / maximumElement.capacity;
+        let elementPercentage = (element.assistance * 100) / element.capacity;
+        if (maximumElementPercentage > elementPercentage) {
+            maximumElement = element;
+        }
+    });
+    return maximumElement.name+" "+maximumElementPercentage.toFixed(2);
+}
+
+
 
 function generatePastEventsTable(array) {
     let categoryArray = getCategories(array);
@@ -118,53 +170,3 @@ function generateUpcomingEventsTable(array) {
     })
 }
 
-
-function generateTable() {
-
-    tableContainer.innerHTML = `<tr>
-    <th colspan="3">Event statistics</th>
-  </tr>
-  <tr>
-    <td>Events with lowest percentage of attendance</td>
-    <td>Events with highest percentage of attendance</td>
-    <td>Event with larger capacity</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-
-
-  
-`;
-}
-
-
-
-{/* 
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr> */}
