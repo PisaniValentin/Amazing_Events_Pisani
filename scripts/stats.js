@@ -9,18 +9,15 @@ const initPage = async () => {
         if (response) {
             const eventos = await response.json();
             eventsArray = eventos.events;
-            let categoryArray = getCategories(eventsArray);
-            categoryArray.forEach(category => {
-                let revenues =  calculateRevenues(eventsArray, category);
-                tableContainer.innerHTML += `<tr>
-                <td>${category}</td>
-                <td>${revenues}</td>
-                <td>&nbsp;</td>
-                </tr>
-                <tr>`
-            })
-        }
+            //let categoryArray = getCategories(eventsArray);
+            let pastEventsArray = eventsArray.filter(dato => dato.date < eventos.currentDate);
+            let upcomingEventsArray = eventsArray.filter(dato => dato.date > eventos.currentDate);
 
+            // console.log(upcomingEventsArray);
+            generateUpcomingEventsTable(upcomingEventsArray);
+            generatePastEventsTable(pastEventsArray);
+
+        }
     }
     catch (error) {
         console.log(error);
@@ -29,6 +26,9 @@ const initPage = async () => {
 
 initPage();
 generateTable();
+
+
+
 
 function getCategories(array) {
     let set = new Set();
@@ -45,10 +45,79 @@ function calculateRevenues(array, category) {
     array.forEach(element => {
         if (element.category == category && element.assistance != undefined) {
             revenues = revenues + (element.assistance * element.price);
+        }else {
+            if (element.category == category) {
+                revenues = revenues + (element.estimate * element.price);
+            }
         }
     });
     return revenues;
 }
+
+function calculatePercentage(array, category) {
+    let totalAssistance = 0;
+    let totalCapacity = 0;
+    let res = 0;
+    array.forEach(element => {
+        if (element.category == category && element.assistance != undefined) {
+            totalAssistance += element.assistance;
+            totalCapacity += element.capacity;
+        } else {
+            if (element.category == category) {
+                totalAssistance += element.estimate;
+                totalCapacity += element.capacity;
+            }
+
+        }
+    });
+    res = (totalAssistance * 100) / totalCapacity;
+    return res.toFixed(2);
+}
+
+function generatePastEventsTable(array) {
+    let categoryArray = getCategories(array);
+    tableContainer.innerHTML += `<tr>
+    <th colspan="3">Past Events statistics by category</th>
+    </tr>
+    <tr>
+    <td>Categories</td>
+    <td>Revenues</td>
+    <td>Percentage of attendance</td>
+    </tr>`;
+    categoryArray.forEach(category => {
+        let percentage = calculatePercentage(array, category);
+        let revenues = calculateRevenues(array, category);
+        tableContainer.innerHTML += `<tr>
+        <td>${category}</td>
+        <td>${revenues}</td>
+        <td>${percentage}</td>
+        </tr>
+        <tr>`
+    })
+}
+
+function generateUpcomingEventsTable(array) {
+    let categoryArray = getCategories(array);
+    tableContainer.innerHTML += `<tr>
+    <th colspan="3">Upcoming Events statistics by category</th>
+    </tr>
+    <tr>
+    <td>Categories</td>
+    <td>Revenues</td>
+    <td>Percentage of attendance</td>
+    </tr>`;
+    categoryArray.forEach(category => {
+        let percentage = calculatePercentage(array, category);
+        let revenues = calculateRevenues(array, category);
+        tableContainer.innerHTML += `<tr>
+        <td>${category}</td>
+        <td>${revenues}</td>
+        <td>${percentage}</td>
+        </tr>
+        <tr>`
+    })
+}
+
 
 function generateTable() {
 
@@ -66,44 +135,14 @@ function generateTable() {
     <td>&nbsp;</td>
   </tr>
 
-  <tr>
-    <th colspan="3"> Upcoming Events statistics by category</th>
-  </tr>
-  <tr>
-    <td>Categories</td>
-    <td>Revenues</td>
-    <td>Percentage of attendance</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
 
-  <tr>
-  <th colspan="3">Past Events statistics by category</th>
-  </tr>
- 
+  
 `;
 }
 
 
 
-{/* <tr>
-<td>Categories</td>
-<td>Revenues</td>
-<td>Percentage of attendance</td>
-</tr>
+{/* 
 <tr>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
