@@ -10,18 +10,21 @@ categoriasContainer.addEventListener('change', combinedFilter);
 
 
 let eventsArray = [];
-
+let eventos = [];
 const initPage = async () => {
   try {
     const response = await fetch('https://mindhub-xj03.onrender.com/api/amazing');
     if (response) {
-      const eventos = await response.json();
+      eventos = await response.json();
       eventsArray = eventos.events;
-      let eventsArrayFiltered = eventsArray.filter(dato => dato.date < eventos.currentDate);
-      insertCards(eventsArrayFiltered);
-      categoriasContainer.innerHTML = generateCategories(eventsArrayFiltered);
+    } else {
+      response = await fetch('./scripts/data.json')
+      eventos = data.json();
+      eventsArray = eventos.events;
     }
-
+    let eventsArrayFiltered = eventsArray.filter(dato => dato.date < eventos.currentDate);
+    insertCards(eventsArrayFiltered);
+    categoriasContainer.innerHTML = generateCategories(eventsArrayFiltered);
   }
   catch (error) {
     console.log(error);
