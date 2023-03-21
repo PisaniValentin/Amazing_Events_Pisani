@@ -17,7 +17,6 @@ const initPage = async () => {
     const response = await fetch('https://mindhub-xj03.onrender.com/api/amazing');
     if (response) {
       const eventos = await response.json();
-      //console.log(eventos.events);
       eventsArray = eventos.events;
       insertCards(eventsArray);
       categoriasContainer.innerHTML = generateCategories(eventsArray);
@@ -28,7 +27,7 @@ const initPage = async () => {
     console.log(error);
   }
 }
-// string 
+
 initPage();
 
 
