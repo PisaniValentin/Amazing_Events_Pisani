@@ -20,6 +20,9 @@ const initPage = async () => {
                 <div class="detailsDescription">
                 <h5>${evento.name}</h5>
                 <p>${evento.description}</p>
+                <p>Capacity: ${evento.capacity}</p>
+                <p>Place: ${evento.place}</p>
+                <p>Category: ${evento.category}</p>
                 </div>`
         }
 

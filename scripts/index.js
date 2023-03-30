@@ -59,12 +59,9 @@ function insertCards(array) {
             <div class="cardBotHeader row">
               <h5>${datos.name}</h5>
               <p>${datos.description}</p>
-              <p>Date: ${datos.date}</p>
-              <p>Capacity: ${datos.capacity}</p>
-              <p>Estimate: ${datos.estimate}</p>
             </div>
             <div class="cardBotFooter row">
-              <div class="cardPrice col-6">price $ ${datos.price}</div>
+              <div class="cardPrice col-6">Price $ ${datos.price}</div>
               <div class="cardButton col-6">
                 <a class="verMasButton" href="./details.html?name=${datos.name}">See more</a>
               </div>

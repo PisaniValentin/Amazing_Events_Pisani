@@ -8,7 +8,7 @@ let categoriasContainer = document.getElementById('categorias');
 input.addEventListener('input', combinedFilter);
 categoriasContainer.addEventListener('change', combinedFilter);
 
-
+let eventsArrayFiltered = [];
 let eventsArray = [];
 let eventos = [];
 const initPage = async () => {
@@ -22,7 +22,7 @@ const initPage = async () => {
       eventos = data.json();
       eventsArray = eventos.events;
     }
-    let eventsArrayFiltered = eventsArray.filter(dato => dato.date < eventos.currentDate);
+    eventsArrayFiltered = eventsArray.filter(dato => dato.date < eventos.currentDate);
     insertCards(eventsArrayFiltered);
     categoriasContainer.innerHTML = generateCategories(eventsArrayFiltered);
   }
@@ -113,7 +113,7 @@ function filterByCheckboxes(arrayInfo) {
 }
 
 function combinedFilter() {
-  let filteredByText = filterByText(eventsArray, input.value);
+  let filteredByText = filterByText(eventsArrayFiltered, input.value);
   let filteredByTextAndCheckbox = filterByCheckboxes(filteredByText);
   insertCards(filteredByTextAndCheckbox);
 }
